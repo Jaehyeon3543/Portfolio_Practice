@@ -1,5 +1,7 @@
 {
   "baseURL": "https://jaehyeon3543.github.io/Portfolio_Practice/",
+  "languageCode": "ko",
+  "defaultContentLanguage": "ko",
   "enableGitInfo": false,
   "themesDir": "themes",
   "timeout": "120s",

@@ -1,0 +1,87 @@
+# Alert/Admonition translations
+note = "참고"
+tip = "팁"
+important = "중요!"
+warning = "경고"
+caution = "주의"
+info = "정보"
+success = "성공"
+question = "질문"
+danger = "위험"
+bug = "버그"
+example = "예시"
+
+# Header & navigation
+menu = "메뉴"
+search = "검색"
+searchPlaceholder = "검색..."
+clearSearch = "검색어 지우기"
+closeSearch = "검색 닫기"
+toggleMenu = "메뉴 열기/닫기"
+closeMenu = "메뉴 닫기"
+toggleTheme = "다크 모드 전환"
+language = "언어"
+
+# Accessibility
+skipToMain = "본문으로 바로가기"
+scrollToTop = "맨 위로 이동"
+
+# Home
+home = "홈"
+recentPosts = "최근 글"
+
+# List & filters
+posts = "글"
+filters = "필터"
+searchTags = "태그 검색..."
+tagsLabel = "태그"
+yearMonth = "연도·월"
+allDates = "전체 기간"
+clearFilters = "필터 초기화"
+
+# Pagination
+pageOf = "%s / %s 페이지"
+postSingular = "개의 글"
+postPlural = "개의 글"
+pageSingular = "페이지"
+pagePlural = "페이지"
+postsOnThisPage = "이 페이지"
+paginationFirst = "처음"
+paginationPrev = "이전"
+paginationNext = "다음"
+paginationLast = "마지막"
+
+# Navigation links
+backToHome = "홈으로 돌아가기"
+allTags = "전체 태그"
+readMore = "더 읽기"
+
+# Archive
+archive = "아카이브"
+
+# Single post
+relatedPosts = "관련 글"
+tags = "태그"
+navPrev = "이전 글"
+navNext = "다음 글"
+
+# Post meta
+wordCount = "단어"
+readingTime = "분"
+
+# Table of contents
+tableOfContents = "목차"
+toggleToc = "목차 열기/닫기"
+
+# Tags page
+tagsHelp = "태그를 누르면 관련 글을 볼 수 있습니다"
+searchNoResults = "검색 결과가 없습니다"
+searchNoTagsFound = "태그가 없습니다"
+
+# Buy Me a Coffee
+buyMeACoffeeDescription = "Buy Me a Coffee로 후원하기"
+
+# 404 page
+404Title = "페이지를 찾을 수 없습니다"
+404DefaultMessage = "요청한 페이지가 없거나 주소가 바뀌었습니다."
+404ReturnHome = "홈으로 돌아가기"
