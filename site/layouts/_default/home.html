@@ -58,7 +58,19 @@
   <section class="home-section" id="projects">
     <h2>Projects</h2>
   </section>
+  <section class="home-section" id="experience">
+    <h2>Experience</h2>
+  </section>
+
   <section class="home-section" id="blog">
     <h2>Blog</h2>
+    <div class="posts-list">
+      {{ range where site.RegularPages "Type" "posts" | first 3 }}
+        {{ partial "post-card.html" (dict "page" . "limit" 3) }}
+      {{ end }}
+    </div>
+    {{ with site.GetPage "/posts" }}
+      <a href="{{ .RelPermalink }}" class="home-section-more">블로그 전체 보기 →</a>
+    {{ end }}
   </section>
 {{ end }}
