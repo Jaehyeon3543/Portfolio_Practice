@@ -45,5 +45,29 @@
         "url": "claude_coffee.png"
       }
     }
-  }
+  },
+  "Menus": {
+      "main": [
+        {
+          "name": "About",
+          "url": "#about",
+          "weight" : "1"
+        },
+        {
+          "name": "Projects",
+          "url": "#projects",
+          "weight" : "2"
+        },
+        {
+          "name": "Contact",
+          "url": "#contact",
+          "weight" : "3"
+        },
+        {
+          "name": "Blog",
+          "url": "posts/",
+          "weight" : "4"
+        }
+      ]
+    }
 }
