@@ -64,9 +64,14 @@
           "weight" : "3"
         },
         {
-          "name": "Blog",
-          "url": "posts/",
+          "name": "Experience",
+          "url": "#experience",
           "weight" : "4"
+        },
+        {
+          "name": "Blog",
+          "url": "#blog",
+          "weight" : "5"
         }
       ]
     }
