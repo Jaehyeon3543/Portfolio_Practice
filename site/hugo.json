@@ -40,12 +40,9 @@
       "name": "Jaehyeon",
       "owner" : "Jaehyeon"
     },
-    "favicons": {
-      "png": "claud_coffee.png"
-    },
     "avatar": {
       "home": {
-        "url": "claud_coffee.png"
+        "url": "claude_coffee.png"
       }
     }
   }
