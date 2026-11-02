@@ -65,7 +65,7 @@
         },
         {
           "name": "Blog",
-          "url": "posts/",
+          "url": "#blog",
           "weight" : "4"
         }
       ]
