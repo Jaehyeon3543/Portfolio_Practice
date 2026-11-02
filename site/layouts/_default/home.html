@@ -31,15 +31,15 @@
           {{ $enableResize := site.Params.avatar.home.enableResize | default site.Params.avatar.enableResize | default false }}
 
           {{ if $avatarUrl }}
-            <img src="{{ $avatarUrl }}" alt="{{ site.Title }}" class="hero-logo">
+            <img src="{{ $avatarUrl }}" alt="Happy Claude" class="hero-logo">
           {{ else if $avatarAsset }}
             {{ with resources.Get $avatarAsset }}
               {{ if $enableResize }}
                 {{ with .Resize "512x" }}
-                  <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
+                  <img src="{{ .RelPermalink }}" alt="Happy Claude" class="hero-logo">
                 {{ end }}
               {{ else }}
-                <img src="{{ .RelPermalink }}" alt="{{ site.Title }}" class="hero-logo">
+                <img src="{{ .RelPermalink }}" alt="Happy Claude" class="hero-logo">
               {{ end }}
             {{ end }}
           {{ else }}
