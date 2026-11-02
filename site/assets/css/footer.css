@@ -28,7 +28,6 @@
 .social-links {
   display: flex;
   gap: var(--spacing-md);
-  justify-content: center;
 }
 
 .social-link {
