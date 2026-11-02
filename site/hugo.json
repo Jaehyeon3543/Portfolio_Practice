@@ -22,5 +22,13 @@
   "theme": [
     "template"
   ],
-  "title": "hugo-mana-theme"
+  "title": "Jaehyeon's Portfolio",
+  "params": {
+    "description": "Jaehyeon Portfolio, Welcome to my Website",
+    "author": "Jaehyeon",
+    "keywords": [
+      "Jaehyeon",
+      "Portfolio"
+    ]
+  }
 }
