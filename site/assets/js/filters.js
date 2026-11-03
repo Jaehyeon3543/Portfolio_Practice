@@ -305,6 +305,15 @@ function initFilters() {
       filterToggleBtn.classList.toggle("expanded", !isExpanded);
     });
   }
+
+  // Pre-select a tag from the URL, e.g. /posts/?tag=Projects
+  const tagFromUrl = new URLSearchParams(window.location.search).get("tag");
+  if (tagFromUrl && allTags.includes(tagFromUrl)) {
+    addTag(tagFromUrl);
+    if (filterToggleBtn?.getAttribute("aria-expanded") === "false") {
+      filterToggleBtn.click();
+    }
+  }
 }
 
 // Initialize on page load
