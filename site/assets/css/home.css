@@ -1,0 +1,64 @@
+#about h2 {
+  text-align: center;
+}
+
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-primary);
+}
+
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  max-width: 1100px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+
+.about-text strong {
+  color: var(--text-primary);
+}
+
+/* Skill list adapted from hugo-profile (MIT) 이거 hugo-profile 에서 참고해서 가져왔습니다.*/
+.about-skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  gap: 0 var(--spacing-md);
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0 0;
+}
+
+.about-skills li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-skills li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent-light-purple);
+}
+
+@media (max-width: 768px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
