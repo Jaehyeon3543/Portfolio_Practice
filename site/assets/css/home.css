@@ -154,6 +154,86 @@
   font-weight: 600;
 }
 
+/* Experience Section */
+
+/* Horizontal line: top border of the list, items side by side */
+.timeline {
+  --dot-size: 14px;
+  --line-width: 2px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 1100px;
+  margin: var(--spacing-xl) auto 0;
+  border-top: var(--line-width) solid var(--accent-light-purple-rgba-03);
+}
+
+.timeline-item {
+  position: relative;
+  padding-top: var(--spacing-xl);
+  text-align: center;
+}
+
+/* Dot centered on the line, above each item */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * (var(--dot-size) / 2 + var(--line-width) / 2));
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--text-secondary);
+  box-shadow: 0 0 0 4px var(--bg-primary);
+}
+
+/* Highlight dots of ongoing items */
+.timeline-item:has(.is-ongoing)::before {
+  background: var(--accent-primary);
+  box-shadow:
+    0 0 0 4px var(--bg-primary),
+    0 0 12px var(--accent-primary);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-light-purple);
+}
+
+.timeline-item h3 {
+  margin: var(--spacing-xs) 0;
+  color: var(--text-primary);
+}
+
+.timeline-item p {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--text-secondary);
+}
+
+/* Status badge: text label, color is secondary */
+.timeline-status {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.is-ongoing {
+  color: var(--accent-light-purple);
+  background: var(--accent-light-purple-rgba-01);
+}
+
+.is-completed {
+  color: var(--text-secondary);
+}
+
 @media (max-width: 768px) {
   .about-intro {
     grid-template-columns: 1fr;
@@ -162,5 +242,29 @@
   .about-photo {
     max-width: 200px;
     margin: 0 auto;
+  }
+
+  /* Narrow screens: back to a vertical timeline */
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 700px;
+    border-top: none;
+    border-left: var(--line-width) solid var(--accent-light-purple-rgba-03);
+  }
+
+  .timeline-item {
+    padding: 0 0 var(--spacing-xl) var(--spacing-xl);
+    text-align: left;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-item::before {
+    top: 0.3rem;
+    left: calc(-1 * (var(--dot-size) / 2 + var(--line-width) / 2));
+    transform: none;
   }
 }
