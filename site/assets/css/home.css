@@ -1,8 +1,12 @@
-
+:root {
+  --header-height: 68px;   /* Step 1에서 잰 값 */
+}
 
 .home-section {
   padding: var(--spacing-2xl) 0;
   border-top: 2px solid var(--border-color);
+  min-height: calc(100vh - var(--header-height));
+  scroll-margin-top: var(--header-height);
 }
 
 .home-section h2 {
