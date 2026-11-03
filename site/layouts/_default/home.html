@@ -70,7 +70,9 @@
       {{ end }}
     </div>
     {{ with site.GetPage "/posts" }}
-      <a href="{{ .RelPermalink }}" class="home-section-more">블로그 전체 보기 →</a>
+      <a href="{{ .RelPermalink }}" class="project-card project-card-more blog-more">
+        <span>블로그 전체 보기 →</span>
+      </a>
     {{ end }}
   </section>
 {{ end }}

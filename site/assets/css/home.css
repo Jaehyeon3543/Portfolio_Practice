@@ -154,6 +154,11 @@
   font-weight: 600;
 }
 
+/* Blog section: same button as "프로젝트 더보기", with space above the post list */
+.blog-more {
+  margin-top: var(--spacing-xl);
+}
+
 /* Experience Section */
 
 /* Horizontal line: top border of the list, items side by side */
