@@ -68,7 +68,6 @@
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 0 10px var(--accent-primary-rgba-03));
-  animation: float 3s ease-in-out infinite;
 }
 
 .hero-logo-placeholder {
