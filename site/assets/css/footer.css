@@ -19,6 +19,13 @@
   margin-bottom: var(--spacing-md);
 }
 
+.footer-text a {
+  color: var(--text-muted);
+  text-decoration-line: underline;
+  underline-offset: 2px;
+  transition: color var(--transition-fast);
+}
+
 .footer-social {
   display: flex;
   justify-content: center;
