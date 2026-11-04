@@ -95,6 +95,8 @@ function initMobileMenu() {
     mobileMenu.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     document.body.classList.add("mobile-menu-open");
+    // 메뉴가 보이게 된 뒤 닫기 버튼으로 초점 이동: 키보드로 바로 메뉴 링크에 도달하도록 (Claude 작성 → 학생 검토 후 적용)
+    setTimeout(() => mobileMenuClose?.focus(), 50);
   }
 
   function closeMobileMenu() {
