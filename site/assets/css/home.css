@@ -137,6 +137,26 @@
   object-fit: cover;
 }
 
+/* Icon images: keep the whole icon visible, white on the default dark theme */
+.project-image-icon {
+  padding: var(--spacing-md);
+}
+
+.project-image-icon img {
+  object-fit: contain;
+  filter: invert(1);
+}
+
+[data-theme="light"] .project-image-icon img {
+  filter: none;
+}
+
+/* "Coming soon" card is not a link, so no hover lift */
+.project-card-soon:hover {
+  transform: none;
+  border-color: var(--border-color);
+}
+
 .project-card p {
   margin: 0;
   color: var(--text-secondary);
@@ -272,4 +292,9 @@
     left: calc(-1 * (var(--dot-size) / 2 + var(--line-width) / 2));
     transform: none;
   }
+}
+
+.post-content-main img {
+  max-width: 100%;
+  height: auto;
 }
