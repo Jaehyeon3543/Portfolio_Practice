@@ -137,9 +137,10 @@
   object-fit: cover;
 }
 
-/* Icon images: keep the whole icon visible, white on the default dark theme */
+/* 아이콘 이미지: 아이콘 전체가 보이게 하고, 기본 다크 모드에서는 흰색으로 반전 (Claude 작성 → 학생 검토 후 적용) */
 .project-image-icon {
   padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
 }
 
 .project-image-icon img {
@@ -151,7 +152,7 @@
   filter: none;
 }
 
-/* "Coming soon" card is not a link, so no hover lift */
+/* '준비 중' 카드는 링크가 아니므로 마우스를 올려도 떠오르지 않게 (Claude 작성 → 학생 검토 후 적용) */
 .project-card-soon:hover {
   transform: none;
   border-color: var(--border-color);
@@ -174,14 +175,15 @@
   font-weight: 600;
 }
 
-/* Blog section: same button as "프로젝트 더보기", with space above the post list */
+/* Blog 섹션: '프로젝트 더보기'와 같은 버튼, 글 목록과 간격 두기 (Claude 작성 → 학생 검토 후 적용) */
 .blog-more {
   margin-top: var(--spacing-xl);
 }
 
 /* Experience Section */
 
-/* Horizontal line: top border of the list, items side by side */
+/* 타임라인 CSS 전체 (Claude 작성 → 학생 검토 후 적용) */
+/* 가로 선: 목록의 위쪽 테두리, 항목은 옆으로 나란히 */
 .timeline {
   --dot-size: 14px;
   --line-width: 2px;
@@ -202,7 +204,7 @@
   text-align: center;
 }
 
-/* Dot centered on the line, above each item */
+/* 각 항목 위, 선 가운데에 놓이는 점 */
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -216,7 +218,7 @@
   box-shadow: 0 0 0 4px var(--bg-primary);
 }
 
-/* Highlight dots of ongoing items */
+/* 진행 중인 항목의 점 강조 */
 .timeline-item:has(.is-ongoing)::before {
   background: var(--accent-primary);
   box-shadow:
@@ -240,7 +242,7 @@
   color: var(--text-secondary);
 }
 
-/* Status badge: text label, color is secondary */
+/* 상태 배지: 글자로 상태를 표시하고 색은 보조 수단 */
 .timeline-status {
   display: inline-block;
   padding: 0.15rem 0.6rem;
@@ -269,7 +271,7 @@
     margin: 0 auto;
   }
 
-  /* Narrow screens: back to a vertical timeline */
+  /* 좁은 화면: 세로 타임라인으로 전환 */
   .timeline {
     grid-template-columns: 1fr;
     gap: 0;
