@@ -55,7 +55,7 @@
   font-size: clamp(0.875rem, 1.5vw, 1.125rem);
   color: var(--text-secondary);
   margin: var(--spacing-md) 0 0 0;
-  opacity: 0.8;
+  /* opacity: 0.8 제거: 라이트 모드에서 배경 대비가 4.5:1 미만이었음 (Claude 작성 → 학생 검토 후 적용) */
 }
 
 .hero-image {

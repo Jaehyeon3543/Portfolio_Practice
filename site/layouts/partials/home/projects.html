@@ -1,26 +1,27 @@
 <h2>Projects</h2>
 <div class="project-grid">
+    {{/* 카드 이미지·설명 문구, 3번 '준비 중' 카드 (Claude 작성 → 학생 검토 후 적용) */}}
     <a class="project-card" href="{{ "posts/projects/portfolio-site/" | relURL }}">
         <h3>개인 포트폴리오 사이트</h3>
-        <div class="project-image">
-            <img src="{{ "claude_coffee.png" | relURL }}" alt="개인 포트폴리오 사이트 이미지">
+        <div class="project-image project-image-icon">
+            <img src="{{ "free-icon-font-portfolio.png" | relURL }}" alt="">
         </div>
-        <p>이곳에 프로젝트에 관한 설명이 들어갑니다.</p>
+        <p>Hugo와 GitHub Pages로 만든 지금 이 사이트입니다. 테마를 직접 고쳐 가며 HTML·CSS·JS의 구조를 익혔습니다.</p>
     </a>
     <a class="project-card" href="{{ "posts/projects/pomodoro/" | relURL }}">
         <h3>포모도로 타이머 사이트 (제작 중)</h3>
-        <div class="project-image">
-            <img src="{{ "claude_coffee.png" | relURL }}" alt="포모도로 타이머 사이트 이미지">
+        <div class="project-image project-image-icon">
+            <img src="{{ "free-icon-font-open-box-timer.png" | relURL }}" alt="">
         </div>
-        <p>이곳에 프로젝트에 관한 설명이 들어갑니다.</p>
+        <p>25분 집중, 5분 휴식 규칙으로 공부하기 위한 타이머 웹입니다. Codex와 함께 만들며 배우고 있습니다.</p>
     </a>
-    <a class="project-card" href="{{ "posts/projects/portfolio-site/" | relURL }}">
-        <h3>개인 포트폴리오 사이트</h3>
-        <div class="project-image">
-            <img src="{{ "claude_coffee.png" | relURL }}" alt="개인 포트폴리오 사이트 이미지">
+    <div class="project-card project-card-soon">
+        <h3>다음 프로젝트 (준비 중)</h3>
+        <div class="project-image project-image-icon">
+            <img src="{{ "free-icon-font-loading.png" | relURL }}" alt="">
         </div>
-        <p>이곳에 프로젝트에 관한 설명이 들어갑니다.</p>
-    </a>
+        <p>새로운 프로젝트를 준비하고 있습니다. 완성되면 이곳에 추가할 예정입니다.</p>
+    </div>
 </div>
 <a class="project-card project-card-more" href="{{ "posts/" | relURL }}?tag=Projects">
         <span>프로젝트 더보기 →</span>

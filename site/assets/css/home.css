@@ -1,6 +1,7 @@
+/*클로드가 적었다고 주석 단 것 외에는 학생이 직접 적었습니다.*/
+
 :root {
   --header-height: 68px;
-  /* Step 1에서 잰 값 */
 }
 
 .home-section {
@@ -64,7 +65,7 @@
 /* Skill list adapted from hugo-profile (MIT) 이거 hugo-profile 에서 참고해서 가져왔습니다.*/
 .about-skills {
   display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
+  grid-template-columns: repeat(2, minmax(140px, 300px));
   gap: 0 var(--spacing-md);
   list-style: none;
   padding: 0;
@@ -90,6 +91,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-lg);
+  /* 섹션이 flex 세로 배치라 폭을 지정하지 않으면 카드 3개 폭으로 늘어나 좁은 화면에서 잘림 (Claude 작성 → 학생 검토 후 적용) */
+  width: 100%;
   max-width: 1100px;
   margin: var(--spacing-xl) auto;
 }
@@ -137,6 +140,27 @@
   object-fit: cover;
 }
 
+/* 아이콘 이미지: 아이콘 전체가 보이게 하고, 기본 다크 모드에서는 흰색으로 반전 (Claude 작성 → 학생 검토 후 적용) */
+.project-image-icon {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.project-image-icon img {
+  object-fit: contain;
+  filter: invert(1);
+}
+
+[data-theme="light"] .project-image-icon img {
+  filter: none;
+}
+
+/* '준비 중' 카드는 링크가 아니므로 마우스를 올려도 떠오르지 않게 (Claude 작성 → 학생 검토 후 적용) */
+.project-card-soon:hover {
+  transform: none;
+  border-color: var(--border-color);
+}
+
 .project-card p {
   margin: 0;
   color: var(--text-secondary);
@@ -154,14 +178,14 @@
   font-weight: 600;
 }
 
-/* Blog section: same button as "프로젝트 더보기", with space above the post list */
 .blog-more {
   margin-top: var(--spacing-xl);
 }
 
 /* Experience Section */
 
-/* Horizontal line: top border of the list, items side by side */
+/* 타임라인 CSS 전체 (Claude 작성 → 학생 검토 후 적용) */
+/* 가로 선: 목록의 위쪽 테두리, 항목은 옆으로 나란히 */
 .timeline {
   --dot-size: 14px;
   --line-width: 2px;
@@ -182,7 +206,7 @@
   text-align: center;
 }
 
-/* Dot centered on the line, above each item */
+/* 각 항목 위, 선 가운데에 놓이는 점 */
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -196,7 +220,7 @@
   box-shadow: 0 0 0 4px var(--bg-primary);
 }
 
-/* Highlight dots of ongoing items */
+/* 진행 중인 항목의 점 강조 */
 .timeline-item:has(.is-ongoing)::before {
   background: var(--accent-primary);
   box-shadow:
@@ -220,7 +244,7 @@
   color: var(--text-secondary);
 }
 
-/* Status badge: text label, color is secondary */
+/* 상태 배지: 글자로 상태를 표시하고 색은 보조 수단 */
 .timeline-status {
   display: inline-block;
   padding: 0.15rem 0.6rem;
@@ -249,7 +273,7 @@
     margin: 0 auto;
   }
 
-  /* Narrow screens: back to a vertical timeline */
+  /* 좁은 화면: 세로 타임라인으로 전환 */
   .timeline {
     grid-template-columns: 1fr;
     gap: 0;
@@ -272,4 +296,9 @@
     left: calc(-1 * (var(--dot-size) / 2 + var(--line-width) / 2));
     transform: none;
   }
+}
+
+.post-content-main img {
+  max-width: 100%;
+  height: auto;
 }

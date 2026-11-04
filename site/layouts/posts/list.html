@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{/* Create the paginator first so list-count and pagination include posts in subfolders */}}
+  {{/* 페이지네이터를 맨 처음 만들어야 글 개수·페이지 이동에 하위 폴더 글도 포함됨 (Claude 작성 → 학생 검토 후 적용) */}}
   {{ $paginator := .Paginate .RegularPagesRecursive }}
   {{ $allPosts := where site.RegularPages "Type" "posts" }}
   {{ $allTags := slice }}

@@ -1,3 +1,4 @@
+{{/* 테마 원본 복사본. '홈' 링크를 site.Home.RelPermalink로 바꿔 /Portfolio_Practice/ 하위 경로 유지 (Claude 작성 → 학생 검토 후 적용) */}}
 {{ if and .IsPage (not .IsHome) }}
 {{ $postsPage := site.GetPage "/posts" }}
 <nav aria-label="breadcrumb" class="breadcrumb-nav">

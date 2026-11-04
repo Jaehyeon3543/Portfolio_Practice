@@ -306,7 +306,7 @@ function initFilters() {
     });
   }
 
-  // Pre-select a tag from the URL, e.g. /posts/?tag=Projects
+  // 주소의 ?tag= 값으로 태그를 미리 선택 (예: /posts/?tag=Projects) (Claude 작성 → 학생 검토 후 적용)
   const tagFromUrl = new URLSearchParams(window.location.search).get("tag");
   if (tagFromUrl && allTags.includes(tagFromUrl)) {
     addTag(tagFromUrl);

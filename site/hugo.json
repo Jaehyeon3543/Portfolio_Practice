@@ -70,7 +70,7 @@
         },
         {
           "name": "Blog",
-          "url": "#blog",
+          "url": "/posts",
           "weight" : 4
         },
         {
