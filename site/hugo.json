@@ -1,10 +1,14 @@
 {
   "baseURL": "https://jaehyeon3543.github.io/Portfolio_Practice/",
+  "title": "Jaehyeon's Portfolio",
   "languageCode": "ko",
   "defaultContentLanguage": "ko",
   "enableGitInfo": false,
   "themesDir": "themes",
   "timeout": "120s",
+  "outputs": {
+    "home": ["HTML", "RSS", "JSON"]
+  },
   "security": {
     "exec": {
       "allow": [
