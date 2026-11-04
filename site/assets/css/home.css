@@ -65,7 +65,7 @@
 /* Skill list adapted from hugo-profile (MIT) 이거 hugo-profile 에서 참고해서 가져왔습니다.*/
 .about-skills {
   display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
+  grid-template-columns: repeat(2, minmax(140px, 300px));
   gap: 0 var(--spacing-md);
   list-style: none;
   padding: 0;
@@ -91,6 +91,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-lg);
+  /* 섹션이 flex 세로 배치라 폭을 지정하지 않으면 카드 3개 폭으로 늘어나 좁은 화면에서 잘림 (Claude 작성 → 학생 검토 후 적용) */
+  width: 100%;
   max-width: 1100px;
   margin: var(--spacing-xl) auto;
 }
