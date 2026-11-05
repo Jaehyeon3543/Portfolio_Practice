@@ -1,455 +1,155 @@
-# Hugo Mana Theme
+# Jaehyeon's Portfolio
 
-Futuristic hugo theme featuring clean aesthetics, and modern functionality and responsive design.
+Hugo와 GitHub Pages로 만든 개인 포트폴리오 사이트입니다. 2026학년도 초급프로젝트 과제 1로 제작했습니다.
 
-**[Demo](https://managuide.blog/)**
+- 사이트: <https://jaehyeon3543.github.io/Portfolio_Practice/>
+- 저장소: <https://github.com/Jaehyeon3543/Portfolio_Practice>
+- 배포 기록(Actions): <https://github.com/Jaehyeon3543/Portfolio_Practice/actions>
 
-## Support
+## 사용 도구와 버전
 
-If you enjoy this theme, consider buying me a coffee! Your support helps me keep updating and improving the project.
+| 도구 | 버전 | 용도 |
+|---|---|---|
+| Hugo (extended) | 0.167.0 | 사이트 빌드 (로컬·Actions 동일 버전) |
+| Git | 2.53.0 | 버전 관리 |
+| Python | 3.12 (Actions) | 배포용 빌드 스크립트 `.github/pages_build.py` 실행 |
+| GitHub Actions / Pages | - | main에 push하면 자동 빌드·배포 |
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png)](https://www.buymeacoffee.com/livourmanab)
+로컬에서 사이트를 확인하는 데는 **Hugo extended 0.167.0만 있으면 됩니다.**
+Actions 워크플로는 Python·Node.js·Go·Dart Sass도 설치하지만, 이 사이트의 로컬 빌드에는 필요하지 않습니다.
 
-## Features
+작성 환경: Ubuntu 26.04 (WSL2)
 
-- **Fully responsive** design with mobile-first approach
-- **RTL support** for Right-to-Left languages (Hebrew, Arabic, etc.) with mirrored layout
-- **Full-text search** with JSON index and keyboard navigation
-- **Syntax highlighting** with theme-aware Chroma (Catppuccin themes)
-- **Table of Contents** with active section highlighting
-- **Blockquotes and Alerts** with support for GitHub/Obsidian-style admonitions
-- **Dark/Light theme** with system preference detection and manual toggle
-- **Post filtering** by tags, year, and month
-- **Archive pages** with chronological organization
-- **SEO optimized** with Open Graph, Twitter Cards, and structured data
-- **Performance optimized** with asset minification and caching
-- **Integrations**: Buy Me a Coffee, Umami Analytics, social links
+## 설치
 
-## Installation
+1. Hugo **extended** 0.167.0을 설치합니다.
+   [Hugo 릴리스 페이지](https://github.com/gohugoio/hugo/releases/tag/v0.167.0)에서 운영체제에 맞는 `hugo_extended_0.167.0_...` 파일을 받습니다.
+   설치 후 버전을 확인합니다.
+   ```bash
+   hugo version
+   # hugo v0.167.0-...+extended ...
+   ```
+2. 저장소를 내려받습니다.
+   ```bash
+   git clone https://github.com/Jaehyeon3543/Portfolio_Practice.git
+   cd Portfolio_Practice
+   ```
 
-This theme is installed as a Git submodule. To add it to your Hugo site:
+## 로컬에서 실행하기
+
+> ⚠ Hugo 명령은 반드시 **`site/` 폴더 안에서** 실행합니다.
+> 저장소 맨 위 폴더에서 실행하면 테마 원본 폴더를 사이트로 인식해 `/Portfolio_Practice/` 주소가 404가 됩니다.
 
 ```bash
-git submodule add https://github.com/Livour/hugo-mana-theme.git themes/mana
+cd site
+hugo server
 ```
 
-Then set `theme = "mana"` in your `hugo.toml` configuration file.
+브라우저에서 <http://localhost:1313/Portfolio_Practice/> 를 엽니다.
+사이트가 저장소 이름 하위 경로에 배포되므로 로컬에서도 `/Portfolio_Practice/`까지 붙여야 합니다.
 
-## Requirements
-
-- Hugo Extended version 0.100.0 or higher (required for PostCSS support)
-
-## Configuration
-
-Add the following configuration to your `hugo.toml` file. Reference `example.toml` for a complete config, or the `example-*-folder-*.toml` files for minimal configs per content layout (single/multi-folder, single/multi-language).
-
-### Basic Configuration
-
-```toml
-[params]
-  description = "Your site description"
-  favicon = "/favicon/favicon.ico"
-  footerText = "Built with Hugo and Mana theme"  # Optional
-  
-  # Hero section title (optional - defaults to site.Title)
-  heroTitleLine1 = "Your Site Name"  # First line of hero title
-  heroTitleLine2 = "Your Tagline"    # Second line of hero title (optional)
-```
-
-### Avatar
-
-Configure your avatar image (displayed on home page hero and about page). Use either `assetPath` (project asset) or `url` (external URL):
-
-```toml
-[params.avatar]
-  [params.avatar.home]
-    assetPath = "images/transparent-logo.png"
-  [params.avatar.about]
-    assetPath = "images/logo.png"
-```
-
-### Social Links
-
-Add your social media links:
-
-```toml
-[params.social]
-  github = "https://github.com/yourusername"
-  gitlab = "https://gitlab.com/yourusername"
-  linkedin = "https://www.linkedin.com/in/yourprofile"
-  twitter = "yourusername"
-  email = "your.email@example.com"
-```
-
-### Buy Me a Coffee Widget
-
-Enable the Buy Me a Coffee floating widget:
-
-```toml
-[params.buyMeACoffee]
-  enabled = true
-  id = "yourwidgetid"
-  message = ""  # Optional message
-  color = "#BD5FFF"  # Widget color
-  position = "Right"  # "Left" or "Right"
-  x_margin = "18"  # Horizontal margin in pixels
-  y_margin = "18"  # Vertical margin in pixels
-```
-
-**Note:** The widget description text is configured per language in i18n files (`buyMeACoffeeDescription` in `en.toml`, `he.toml`, etc.).
-
-### Menu Configuration
-
-Configure your site navigation menu.
-
-**Single-language sites:** Use root-level `[[menus.main]]`:
-
-```toml
-[[menus.main]]
-  name = 'Home'
-  pageRef = '/'
-  weight = 10
-
-[[menus.main]]
-  name = 'Posts'
-  pageRef = '/posts'
-  weight = 20
-
-[[menus.main]]
-  name = 'Tags'
-  pageRef = '/tags'
-  weight = 30
-
-[[menus.main]]
-  name = 'About'
-  url = '/about/'
-  weight = 40
-```
-
-**Multilingual sites:** Define menus per language in `[[languages.<lang>.menus.main]]` (see [Multilingual Configuration](#multilingual-configuration)).
-
-### Pagination
-
-The theme includes pagination for the posts listing page (Sorted by date).
-Configure the number of posts per page:
-
-```toml
-[pagination]
-  pageSize = 10  # Number of posts per page (default: 10)
-```
-
-The pagination controls include:
-- **First/Last page links** - Jump to the beginning or end
-- **Previous/Next links** - Navigate sequentially
-- **Page numbers** - Direct navigation to specific pages
-- **Current page indicator** - Shows which page you're on
-- **Page information** - Displays total posts and pages
-
-Pagination automatically appears when you have more posts than the configured `pageSize`. The controls are designed
-
-### Table of Contents
-
-Enable table of contents for posts:
-
-```toml
-[markup]
-  [markup.tableOfContents]
-    startLevel = 1
-    endLevel = 6
-    ordered = false
-```
-
-### Blockquotes and Alerts
-
-The theme includes support for styled blockquotes and GitHub/Obsidian-style alerts (admonitions). To enable this feature, add the following configuration:
-
-```toml
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.parser]
-      # Enable block-level attributes for blockquotes
-      [markup.goldmark.parser.attribute]
-        block = true
-        title = true
-```
-
-#### Usage
-
-**Regular blockquote:**
-```markdown
-> This is a regular blockquote with some text.
-```
-
-**Simple alert/admonition:**
-```markdown
-> [!TIP]
-> This is a helpful tip for your readers.
-```
-
-**Collapsible alert with custom title:**
-```markdown
-> [!WARNING]+ Custom Warning Title
-> This is a collapsible warning that can be expanded/collapsed.
-```
-
-#### Supported Alert Types
-
-The theme supports the following alert types:
-- `NOTE` / `INFO` - Informational content
-- `TIP` - Helpful tips and suggestions
-- `IMPORTANT` - Important information
-- `WARNING` / `CAUTION` - Warnings and cautions
-- `SUCCESS` - Success messages
-- `QUESTION` - Questions or prompts
-- `DANGER` - Critical warnings
-- `BUG` - Bug reports or known issues
-- `EXAMPLE` - Example content
-
-#### Collapsible Alerts
-
-Use `+` or `-` after the alert type to make it collapsible:
-- `[!TIP]+` - Collapsed by default (click to expand)
-- `[!TIP]-` - Expanded by default (click to collapse)
-
-You can also add a custom title:
-```markdown
-> [!NOTE]+ My Custom Title
-> This alert has a custom title instead of the default "Note".
-```
-
-The syntax is compatible with GitHub Flavored Markdown, Obsidian, and Typora.
-
-#### Admonition Display Style
-
-Choose between favicon icons or emoji for alert headers:
-
-```toml
-[params.admonitions]
-  alertStyle = "favicon"  # "favicon" (default) or "emoji"
-```
-
-### Code Syntax Highlighting
-
-The theme supports theme-aware syntax highlighting using Chroma. By default, it uses Catppuccin themes:
-- **Dark mode**: `catppuccin-macchiato`
-- **Light mode**: `catppuccin-frappe`
-
-Configure the themes in your `hugo.toml`:
-
-```toml
-[markup]
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = true
-    noClasses = false
-    style = "catppuccin-macchiato"  # Default style
-
-[params]
-  [params.codeHighlight]
-    darkTheme = "catppuccin-macchiato"   # Theme for dark mode
-    lightTheme = "catppuccin-frappe"     # Theme for light mode
-```
-
-#### Generating Syntax Highlighting CSS
-
-To generate the CSS files for syntax highlighting, run these commands in your project root:
+배포용 결과물만 만들어 보려면:
 
 ```bash
-# Generate dark theme CSS
-hugo gen chromastyles --style=catppuccin-macchiato > themes/mana/assets/css/syntax-dark.css
-
-# Generate light theme CSS
-hugo gen chromastyles --style=catppuccin-frappe > themes/mana/assets/css/syntax-light.css
+cd site
+hugo        # 결과물이 site/public/ 에 생성됨 (Git에는 올리지 않음)
 ```
 
-**Note**: These CSS files are already included in the theme. You only need to regenerate them if you want to use different Chroma styles. You can use any valid Chroma style name (e.g., `github`, `monokai`, `dracula`, etc.).
+## 폴더 구조
 
-### Search Index
-
-Enable JSON output for search functionality:
-
-```toml
-[outputs]
-  home = ["HTML", "JSON"]
+```text
+Portfolio_Practice/
+├─ site/                  ← 실제 사이트 (Hugo 명령은 여기서 실행)
+│  ├─ hugo.json           사이트 설정
+│  ├─ content/            글
+│  ├─ layouts/            테마 템플릿을 덮어쓴 파일
+│  ├─ assets/             CSS·JS (테마 파일을 덮어쓴 파일 포함)
+│  ├─ i18n/               한국어 문구 (ko.toml)
+│  ├─ static/             이미지
+│  └─ themes/template/    Mana 테마 원본 (수정하지 않음)
+├─ .github/workflows/     GitHub Pages 배포 워크플로
+├─ LICENSE                Mana 테마 라이선스 (MIT)
+└─ 그 밖의 파일·폴더        테마 ZIP 원본과 준비 스크립트 (사이트 빌드에는 쓰지 않음)
 ```
 
-### Multilingual Configuration
+## 수정할 파일 위치
 
-The theme supports multiple languages with a language switcher in the header.
+모든 사이트 파일은 `site/` 안에 있습니다. **테마 원본(`site/themes/template/`)은 수정하지 않고**, 바꿀 파일은 `site/layouts/`, `site/assets/`에 같은 경로로 복사해서 덮어씁니다.
 
-**Required:** Set `defaultContentLanguage = "en"` (or your preferred default) in your config for multilingual sites to work correctly.
+| 바꾸고 싶은 것 | 파일 |
+|---|---|
+| 사이트 제목, 주소, 메뉴, GitHub·이메일 링크 | `site/hugo.json` |
+| 홈 화면 전체 순서 (Hero → About → Projects → Experience → Blog) | `site/layouts/_default/home.html` |
+| About (소개·사진·기술) | `site/layouts/partials/home/about.html` |
+| Projects 카드 | `site/layouts/partials/home/projects.html` |
+| Experience 타임라인 | `site/layouts/partials/home/experience.html` |
+| 홈 섹션 디자인 | `site/assets/css/home.css` |
+| Hero 디자인 | `site/assets/css/hero.css` |
+| Footer (이메일·출처) | `site/layouts/partials/footer.html` |
+| 버튼·메뉴 등의 한국어 문구 | `site/i18n/ko.toml` |
+| 블로그 글 | `site/content/posts/` (프로젝트 글은 `site/content/posts/projects/`) |
+| 이미지 | `site/static/` (주소는 `/Portfolio_Practice/파일명`) |
 
-**Add a language:** Add a `[languages.<lang>]` block and create `themes/mana/i18n/<lang>.toml` with translated strings. Copy from `en.toml` and translate each key. The theme includes `en.toml` and `he.toml` by default; add new files for additional languages.
+새 글은 `site/` 폴더에서 다음 명령으로 만듭니다. 만든 직후에는 `draft: true`라 사이트에 보이지 않으므로, 완성되면 `draft: false`로 바꿉니다.
 
-**Remove a language:** Delete the `[languages.<lang>]` block. With only one language, the switcher is hidden.
-
-**Content layout:** The theme supports both approaches from [Hugo's multilingual docs](https://gohugo.io/content-management/multilingual/):
-
-| Approach | Config | Content layout |
-|----------|--------|----------------|
-| **Translation by filename** | `[languages]` blocks, **omit contentDir** | `content/posts/post.md` + `content/posts/post.es.md` (same directory) |
-| **Translation by directory** | `contentDir = "content/en"` etc. per language | `content/en/posts/post.md` + `content/es/posts/post.md` (separate dirs) |
-
-**Example configs:** Use the example that matches your setup:
-
-| File | Use when |
-|------|----------|
-| `example-single-folder-single-lang.toml` | Single language, all content in `content/` |
-| `example-single-folder-multilang.toml` | Multiple languages, translation by filename |
-| `example-multi-folder-single-lang.toml` | Single language, content in `content/en/` |
-| `example-multi-folder-multilang.toml` | Multiple languages, translation by directory |
-| `example.toml` | Full reference (multi-folder, multi-language) |
-
-**RTL (Right-to-Left) support:** For Hebrew, Arabic, or other RTL languages, set `languageDirection = "rtl"` in the language block. The theme automatically applies:
-- Mirrored navigation and layout
-- Right-aligned text and proper text flow
-- Mobile menu sliding from the right
-- RTL-specific styles for filters, search, tables of contents, and post metadata
-
-**Buy Me a Coffee description:** Add `buyMeACoffeeDescription` to each language's i18n file instead of config.
-
-**Linking pages with different basenames:** Use `translationKey` in front matter to link pages that don't share the same filename or path. See [Hugo's bypassing default linking](https://gohugo.io/content-management/multilingual/#bypassing-default-linking).
-
-Example minimal config for translation by filename (English + Spanish, no contentDir):
-
-```toml
-defaultContentLanguage = "en"
-
-[languages.en]
-  languageCode = "en-US"
-  languageName = "English"
-  languageDirection = "ltr"
-  weight = 1
-  title = "Your Site Title"
-  # No contentDir - all languages use content/
-  [languages.en.params]
-    heroTitleLine1 = "YOUR SITE NAME"
-    heroTitleLine2 = "YOUR TAGLINE"
-  [[languages.en.menus.main]]
-    name = "Home"
-    pageRef = "/"
-    weight = 10
-  # ... other menu items
-
-[languages.es]
-  languageCode = "es-ES"
-  languageName = "Español"
-  languageDirection = "ltr"
-  weight = 2
-  title = "Tu sitio"
-  # No contentDir
-  [languages.es.params]
-    heroTitleLine1 = "NOMBRE DE TU SITIO"
-    heroTitleLine2 = "TU ESLOGAN"
-  [[languages.es.menus.main]]
-    name = "Inicio"
-    pageRef = "/"
-    weight = 10
-  # ... other menu items
+```bash
+hugo new content posts/글이름.md
 ```
 
-Example minimal config for translation by directory (English + Hebrew, RTL):
+## 수정 후 배포하고 확인하기
 
-```toml
-defaultContentLanguage = "en"
+1. 수정한 내용을 커밋하고 main에 push합니다.
+   ```bash
+   git add <바꾼 파일>
+   git commit -m "무엇을 바꿨는지 설명"
+   git push
+   ```
+2. 저장소의 **Actions** 탭에서 `Deploy Hugo to GitHub Pages` 실행을 엽니다.
+   `build`와 `deploy`가 모두 초록색 체크가 되면 배포가 끝난 것입니다.
+3. <https://jaehyeon3543.github.io/Portfolio_Practice/> 를 열어 변경이 반영됐는지 확인합니다.
+   반영이 안 보이면 강력 새로고침(Ctrl+Shift+R)을 합니다.
 
-[languages.en]
-  languageCode = "en-US"
-  languageName = "English"
-  languageDirection = "ltr"
-  contentDir = "content/en"
-  weight = 1
-  title = "Your Site Title"
-  [languages.en.params]
-    description = "Your site description"
-    author = "Your Name"
-    heroTitleLine1 = "YOUR SITE NAME"
-    heroTitleLine2 = "YOUR TAGLINE"
-    custom404Message = "Sorry, the page you are looking for could not be found."
-    footerText = "Built with Hugo and Mana theme"
-  [[languages.en.menus.main]]
-    name = "Home"
-    pageRef = "/"
-    weight = 10
-  # ... other menu items
+워크플로 설정은 `.github/workflows/hugo-pages.yml`에 있습니다. (수업 제공 스크립트 `prepare_github_pages.py`로 생성)
 
-[languages.he]
-  languageCode = "he-IL"
-  languageName = "עברית"
-  languageDirection = "rtl"
-  contentDir = "content/he"
-  weight = 2
-  title = "Your Site Title"
-  [languages.he.params]
-    description = "Your site description"
-    author = "Your Name"
-    heroTitleLine1 = "YOUR SITE NAME"
-    heroTitleLine2 = "YOUR TAGLINE"
-    custom404Message = "Sorry, the page you are looking for could not be found."
-    footerText = "Built with Hugo and Mana theme"
-  [[languages.he.menus.main]]
-    name = "בית"
-    pageRef = "/"
-    weight = 10
-  # ... other menu items (see example.toml for full reference)
-```
+## 출처와 라이선스
 
-See `example.toml` for a complete reference, or the `example-*-folder-*.toml` files for minimal configs per setup.
+### 외부 자료
 
-### 404 Page Configuration
+| 자료 | 사용 위치 | 출처 | 라이선스 |
+|---|---|---|---|
+| Mana 테마 (Livour) | 사이트 전체 디자인·레이아웃 (`site/themes/template/`) | <https://github.com/Livour/hugo-mana-theme> | MIT (`LICENSE` 유지) |
+| hugo-profile (gurusabarish) | About 기술 목록 스타일 (`site/assets/css/home.css`의 `.about-skills`) | <https://github.com/gurusabarish/hugo-profile> | MIT |
+| Flaticon 아이콘 | 홈 Projects 카드 아이콘 (`site/static/free-icon-font-*.png`) | <https://www.flaticon.com/> | Flaticon 무료 라이선스 (출처 표기 조건, 사이트 footer에 표기) |
 
-Customize the 404 error page message per language in `[languages.<lang>.params]`:
+### AI로 생성한 자료
 
-```toml
-[languages.en.params]
-  custom404Message = "Sorry, the page you are looking for could not be found. I guess I don't have a guide for <em>everything</em>"
-```
+| 자료 | 사용 위치 | 생성 도구 |
+|---|---|---|
+| `claude_coffee.png` | Hero 이미지, 404 페이지, 파비콘 | Codex |
 
-The 404 page uses the same hero section styling as your home page, providing a consistent user experience.
+### 직접 제작한 자료
 
-### Umami Analytics
+| 자료 | 사용 위치 |
+|---|---|
+| `me.jpg` | About 프로필 사진 (본인 사진) |
+| `site/i18n/ko.toml` | 버튼·메뉴 한국어 문구 (테마의 `en.toml`을 참고해 직접 번역) |
+| `site_screenshot.png` | 포트폴리오 글 화면 캡처 (직접 캡처) |
+| `Pomodoro_site.png` | 포모도로 글 화면 캡처 (직접 캡처) |
+| 소개·프로젝트 글, 홈 섹션 HTML 구조 | 직접 작성 |
 
-The theme supports Umami Analytics for privacy-friendly page tracking:
+### AI 도움을 받은 부분
 
-```toml
-[params]
-  [params.umami]
-    # Set your Umami website ID for page tracking
-    websiteId = "your-umami-website-id"
-```
+AI(Claude)를 사용해 작성한 코드는 해당 위치에 **`(Claude 작성 → 학생 검토 후 적용)`** 주석을 남겼습니다. 주요 내용은 다음과 같습니다.
 
-To use Umami:
-1. Sign up for an account at [Umami Cloud](https://umami.is/) or self-host Umami
-2. Create a website in your Umami dashboard
-3. Copy your website ID and add it to your configuration
+- Experience 타임라인 CSS (`site/assets/css/home.css`)
+- 블로그 목록에 하위 폴더 글이 보이도록 한 수정 (`site/layouts/posts/list.html`)
+- 홈 "프로젝트 더보기" → Projects 태그 필터 연결 (`site/assets/js/filters.js`)
+- 홈·태그 링크가 `/Portfolio_Practice/` 하위 경로를 유지하도록 한 수정 (`site/layouts/` 의 breadcrumb, back-to-home, single, post-meta, post-tags-inline, taxonomy 파일)
+- 글 상세 페이지 목차 제거 (`site/layouts/_default/single.html`)
+- 프로젝트 카드 이미지·설명, 준비 중 카드 (`site/layouts/partials/home/projects.html`)
+- 홈 Blog 섹션 "블로그 전체 보기" 버튼 스타일 (`home.css`의 `.blog-more`), footer의 Flaticon 출처 표기 (`site/layouts/partials/footer.html`)
+- Hero 부제 대비 개선 (`site/assets/css/hero.css`), 좁은 화면 카드 잘림 수정 (`home.css`)
+- 모바일 메뉴 키보드 초점 이동 (`site/assets/js/navigation.js`)
+- 프로젝트 글 초안 (학생의 답변을 바탕으로 작성 후 학생이 수정)
 
-The Umami script will be automatically included in your site's `<head>` section.
-
-## Post Frontmatter
-
-The theme supports standard Hugo frontmatter. For post images, add an `image` parameter:
-
-```markdown
----
-title: "Your Post Title"
-date: 2024-01-01
-tags: ["tag1", "tag2"]
-image: "/images/your-image.png"
----
-```
-
-## Pages
-
-The theme includes layouts for:
-- **Home page** - Displays mini about section and recent posts
-- **Posts listing** - Shows all posts with filtering
-- **Single post** - Individual post view with metadata and table of contents
-- **Tags page** - Tag cloud view
-- **Individual tag page** - Posts grouped by year for each tag
-- **About page** - About page with avatar and social links
-- **404 page** - Custom error page with hero section styling
-
-## License
-
-MIT
-
+AI가 제안한 내용은 모두 제가 확인한 뒤 적용했으며, 상세한 사용 사례와 검증 결과는 과제 보고서에 기록했습니다.
